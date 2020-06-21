@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sedes Unicuritiba</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<style>
+	.lista-sedes {
+		list-style: none;
+		display: inline-block;
+		max-width: 1200px;
+	}
+
+</style>
+</head>
+<body class="d-flex h=100">
+	<main role="main">
+		<div class="container">
+
+			<h1>Sedes Curitiba</h1>
+
+			<div>
+				<ul class="lista-sedes" th:each="building: ${buildings}">
+					<li>
+						<div class="card" style="width: 18rem;">
+							<div class="card-body">
+								<h5 class="card-title" th:text="${building.name}"></h5>
+								<p class="card-text" th:text="${building.address}"></p>
+								<p class="card-text" th:text="${building.phone}"></p>
+								<a th:href="@{/{id}/libraries(id=${building.id})}" class="btn btn-primary">Ver bibliotecas</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<a href="/register-building" style="margin-top: 30px;">
+				<button class="btn btn-primary">Cadastrar Sede</button>
+			</a>
+		</div>
+	</main>
+</body>
+</html>

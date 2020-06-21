@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sede</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+
+		<h1>Cadastrar Sede</h1>
+
+		<form th:action="@{/register-building}" method="post"
+			th:object="${buildingViewModel}">
+			<div class="form-group">
+				<label>Nome da Sede</label> <input type="text" class="form-control"
+					placeholder="Nome" th:field="*{name}">
+			</div>
+			<div class="form-group">
+				<label>Endereço da sede</label> <input type="text"
+					class="form-control" placeholder="Endereço" th:field="*{address}">
+			</div>
+			<div class="form-group">
+				<label>Telefone</label> <input type="text" class="form-control"
+					placeholder="(xx) xxxx-xxxx" th:field="*{phone}">
+			</div>
+			<a th:href="@{/building}" class="btn btn-secondary">Voltar</a>
+			<button type="submit" class="btn btn-primary">Cadastrar</button>
+		</form>
+
+	</div>
+
+</body>
+</html>

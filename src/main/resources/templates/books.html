@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<style>
+.lista-sedes {
+	list-style: none;
+	display: inline-block;
+	max-width: 1200px;
+}
+</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1 th:text="${library.name}"></h1>
+
+		<div>
+			<ul class="lista-sedes" th:each="book: ${books}">
+				<li th:id="${book.id}">
+					<div class="card" style="width: 18rem;">
+						<div class="card-body">
+							<h5 class="card-title" th:text="${book.title}"></h5>
+							<p class="card-text"><strong>Id: </strong><span  th:text="${book.id}"></span></p>
+							<p class="card-text"><strong>Autor: </strong><span  th:text="${book.author}"></span></p>
+							<p class="card-text" ><strong>Edição: </strong><span th:text="${book.edition}"></span> - <span th:text="${book.year}"></span></p>
+							<p class="card-text"><strong>Editora: </strong><span  th:text="${book.publishingCompany}"></span></p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<a th:href="@{/{id}/libraries(id=${library.id})}"
+								class="btn btn-secondary">Voltar</a>
+		<a th:href="@{/{id}/register-book(id=${library.id})}" style="margin-top: 30px;">
+			<button class="btn btn-primary">Cadastrar Livro</button>
+		</a>
+	</div>
+
+</body>
+</html>
